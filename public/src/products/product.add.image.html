@@ -1,0 +1,43 @@
+
+<div class="card-panel">
+    <h3>Select files</h3>
+    <div class="row">
+        <div class="col s3">
+            <div ngf-drop="uploadFiles($files)" class="drop-box"
+                 ngf-drag-over-class="'dragover'" ngf-multiple="true"
+                 ngf-pattern="'image/*'">Drop Images here</div>
+            <div ngf-no-file-drop>File Drag/Drop is not supported for this browser</div>
+        </div>
+        <div class="col s9">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th with="50%">Name</th>
+                    <th>Size</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="img in imgs">
+                        <td>{{img.name}}</td>
+                        <td>{{img.size}}</td>
+                        <td>
+                            <a class="btn-floating waves-effect waves-light red" ng-click="removeImg(img)"><i class="material-icons">delete</i></a>
+                        </td>
+                    </tr>
+                    <tr ng-if="imgs.length == 0">
+                        <td colspan="3" style="width: 100%; text-align: center" class="text-darken-4 indigo-text">
+                            Aucune image dans la liste
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s12 offset-s6">
+            <button class="waves-effect waves-light btn" ng-class="{disabled: !afterDrop}" ng-click="uploadAll()"><i class="material-icons left">system_update_alt</i>Upload</button>
+            <a class="waves-effect waves-light btn" ng-class="{disabled: afterDrop}" ui-sref="products.list"><i class="material-icons left">done</i>Finir votre ajout</a>
+        </div>
+    </div>
+</div>

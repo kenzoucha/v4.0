@@ -1,0 +1,30 @@
+<h4 class="header">Modifier Produit</h4>
+
+<div class="card-panel" >
+    <form class="col s12" ng-submit="editProduct()">
+        <div class="row">
+            <div class="input-field col s6">
+                <i class="material-icons prefix">mode_edit</i>
+                <input id="designation_prod" type="text" class="validate" ng-model="product.designation">
+                <label ng-class="{active : focus == true}" for="designation_prod">Désignation Produit</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s6">
+                <i class="material-icons prefix">mode_edit</i>
+                <textarea id="description_prod" class="materialize-textarea" ng-model="product.description"></textarea>
+                <label ng-class="{active : focus == true}" for="description_prod">Déscription Produit</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s6">
+                <i class="material-icons prefix">mode_edit</i>
+                <input id="price_prod" type="text" class="validate" ng-model="product.price">
+                <label ng-class="{active : focus == true}" for="price_prod">Prix Produit</label>
+            </div>
+        </div>
+        <button type="submit" class="btn pink" name="action">Enregister
+            <i class="material-icons right">send</i>
+        </button>
+    </form>
+</div>

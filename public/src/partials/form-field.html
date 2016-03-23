@@ -1,0 +1,15 @@
+<div class="row" ng-form="field">
+
+    <div class="input-field col s6" ng-if="record[field][1] !== 'select'">
+        <i class="material-icons prefix">mode_edit</i>
+        <textarea id="{{field}}_scat" class="materialize-textarea" ng-model="record[field][0]" ng-if="record[field][1] === 'textarea'"></textarea>
+        <input id="{{field}}_scat" type="{{record[field][1]}}" class="validate" ng-model="record[field][0]" ng-if="record[field][1] === 'text'">
+        <label for="{{field}}_scat">{{field}}</label>
+    </div>
+    <div class="input-field col s6" ng-if="record[field][1] === 'select'">
+        <select ng-model="record[field][0]" class="browser-default">
+            <option value="" disabled selected>Lists Categories</option>
+            <option ng-repeat="cat in categories" value="{{cat._id}}">{{cat.designation}}</option>
+        </select>
+    </div>
+</div>

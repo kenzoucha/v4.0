@@ -1,0 +1,68 @@
+
+
+<h4 class="header">Authentification</h4>
+
+<div class="card-panel" >
+    <form class="col s12" ng-submit="addPerson()" name="per">
+        <div class="row">
+            <div class="input-field col s6">
+                <i class="material-icons prefix">account_circle</i>
+                <input id="name_per" type="text" class="validate" ng-model="person.username" name="username"data-mask="[a-zA-Z0-1\.]+" data-is-regex="true"
+                >
+                <label for="name_per"> User Name</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s6">
+            <i class="material-icons prefix">phone</i>
+            <input id="icon_telephone" type="tel" class="validate" ng-model="person.phone">
+            <label for="icon_telephone">phone</label>
+        </div>
+            </div>
+        <div class="row">
+            <div class="input-field col s6">
+
+                <i class="material-icons prefix">date_range</i>
+                <label for="birthdate_per">birthdate</label>
+                <input type="date" class="datepicker" id="birthdate_per" ng-model="person.birthdate">
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s6">
+                <i class="material-icons prefix">email</i>
+                <label for="birthdate_per">Email</label>
+                <div class="input-group-addon"><i class="entypo-mail"></i></div>
+                    <input type="text" class="form-control" name="email" id="email" data-mask="email"
+                         autocomplete="off"/></div>
+            </div>
+        <div class="row">
+        <div class="input-field col s6">
+            <i class="material-icons prefix">lock</i>
+            <label for="password">Pasword</label>
+                    <input type="password" class="form-control" name="password" id="password"
+                      autocomplete="off"/></div>
+            </div>
+        <div class="row">
+            <div class="input-field col s6">
+                <i class="material-icons prefix">lock</i>
+                <label for="password_again">Pasword again</label>
+                <input type="password" class="form-control" name="password" id="password_again"
+                       autocomplete="off"/></div>
+        </div>
+            <button type="submit" class="btn pink" name="action">Enregister
+            <i class="material-icons right">send</i>
+        </button>
+
+    </form>
+</div>
+
+
+
+
+<script>
+$('.datepicker').pickadate({
+selectMonths: true, // Creates a dropdown to control month
+selectYears: 15 // Creates a dropdown of 15 years to control year
+});
+</script>

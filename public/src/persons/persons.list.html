@@ -1,0 +1,32 @@
+<h4>Listes Des clients</h4>
+<div class="card-panel">
+    <div class="input-field col s6" >
+        <i class="material-icons prefix">search</i>
+        <input type="text" class="validate" ng-model="byInput">
+    </div>
+    <table class="striped">
+        <thead>
+        <tr>
+            <th data-field="id" class="grey-text text-darken-2">Name</th>
+            <th data-field="name" class="grey-text text-darken-2">Phone</th>
+            <th data-field="id" class="grey-text text-darken-2">birthdate</th>
+
+            <th data-field="id" class="grey-text text-darken-2">email</th>
+            <th>Edition</th>
+            <th>Suppression</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr ng-repeat="per in persons | filter : byInput">
+            <td>{{per.username}}</td>
+            <td>{{per.phone}}</td>
+            <td>{{per.birthdate}}</td>
+            <td>{{per.email}}</td>
+            <td><a ui-sref="persons.edit({personId:per._id})" style="color: #f0ad4e;"><i class="material-icons">mode_edit</i></a></td>
+            <td><a ng-click="deletePerson({personId:per._id})" href="" style="color: #d9534f;"><i class="material-icons">delete</i></a></td>
+
+        </tr>
+        </tbody>
+    </table>
+</div>

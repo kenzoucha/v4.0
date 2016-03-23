@@ -1,0 +1,47 @@
+<div class="row">
+    <div class="col s6">
+        <div class="row">
+            <div class="col s12">
+                <div class="card blue-grey white">
+                    <div class="card-content pink-text">
+                        <span class="card-title grey-text">Nom de Produit : <b class="header">{{product.designation}}</b></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12">
+                <div class="card blue-grey grey">
+                    <div class="card-content white-text">
+                        <span class="card-title">Déscription de Produit :</span>
+                        <p>{{product.description}}</p>
+                        <hr>
+                        </br>
+                        <span >Prix de Produit :</span><br>
+                        <p>{{product.price}}</p>
+                        <hr>
+                        <span >Categorie :</span><br>
+                        <p>{{product.category_name}}</p>
+                        <hr>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col s6">
+            <div class="row" ng-repeat="img in product.images">
+                <div class="col s8 offset-s4">
+                    <div class="card">
+                        <div class="card-image">
+                            <img ng-src="assets/images/{{img.name}}">
+                            <span class="card-title">{{img.name | limitTo : 15}} ...</span>
+                        </div>
+                        <div class="card-action right-align">
+                            <a ng-click="deleteProduct(product._id)" href="" style="color: #d9534f;"><i class="material-icons">delete</i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

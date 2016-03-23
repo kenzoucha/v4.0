@@ -1,0 +1,31 @@
+
+<h4 class="header">Listes sous Catégories</h4>
+<div class="card-panel">
+    <div class="input-field col s6" >
+        <i class="material-icons prefix">search</i>
+        <input type="text" class="validate" ng-model="byInput">
+    </div>
+    <table class="striped">
+        <thead>
+        <tr>
+            <th data-field="id" class="grey-text text-darken-2">Désignation sous Categorie</th>
+            <th data-field="id" class="grey-text text-darken-2">Déscription sous  Categorie</th>
+            <th data-field="name" class="grey-text text-darken-2">Désignation Categorie</th>
+            <th data-field="price" class="grey-text text-darken-2">Nombres des Produits</th>
+            <th>Edition</th>
+            <th>Suppression</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr ng-repeat="scat in scategories | filter : byInput">
+            <td>{{scat.designation}}</td>
+            <td>{{scat.description}}</td>
+            <td > {{scat._categoryId.designation}}</td>
+            <td>0</td>
+            <td><a ng-click="deleteSCategory({scategoryId:scat._id})" href="" style="color: #d9534f;"><i class="material-icons">delete</i></a></td>
+            <td><a ui-sref="scategories.edit({scategoryId:scat._id})" style="color: #f0ad4e;"><i class="material-icons">mode_edit</i></a></td>
+        </tr>
+        </tbody>
+    </table>
+</div>

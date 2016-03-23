@@ -1,0 +1,34 @@
+
+<h4 class="header">Listes Catégories</h4>
+<div class="card-panel">
+    <div class="input-field col s6" >
+    <i class="material-icons prefix">search</i>
+    <input type="text" class="validate" ng-model="byInput">
+        </div>
+    <table class="striped">
+        <thead>
+        <tr>
+            <th data-field="id" class="grey-text text-darken-2">Désignation Categorie</th>
+            <th data-field="name" class="grey-text text-darken-2">Déscription Categorie</th>
+            <th data-field="price" class="grey-text text-darken-2">Nombres des sous categorie</th>
+            <th>Edition</th>
+            <th>Suppression</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr ng-if="categories.length === 0">
+            <td style="text-align: center;" colspan="5">
+                <h5>Aucune catégories trouvées</h5>
+            </td>
+        </tr>
+        <tr ng-repeat="cat in categories | filter : byInput">
+            <td>{{cat.designation}}</td>
+            <td>{{cat.description}}</td>
+            <td>{{cat.subCats.length}}</td>
+            <td><a ng-click="deleteCategory(cat._id)" href="" style="color: #d9534f;"><i class="material-icons">delete</i></a></td>
+            <td><a ui-sref="categories.edit({categoryId:cat._id})" style="color: #f0ad4e;"><i class="material-icons">mode_edit</i></a></td>
+        </tr>
+        </tbody>
+    </table>
+</div>

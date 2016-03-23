@@ -1,0 +1,29 @@
+
+
+<h4 class="header">Authentification</h4>
+
+<div class="card-panel" >
+    <form class="col s12" >
+        <div class="row">
+            <div class="input-field col s6" ng-submit="loadPerson()" name="per">
+                <i class="material-icons prefix">account_circle</i>
+                <input id="name_per" type="text" class="validate" ng-model="person.name" data-mask="[a-zA-Z0-1\.]+" data-is-regex="true"
+                >
+                <label for="name_per"> User Name</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s6">
+                <i class="material-icons prefix">lock</i>
+                <label for="password">Pasword</label>
+                <input type="password" class="form-control" name="password" id="password"
+                       autocomplete="off"/></div>
+        </div>
+
+        <button type="submit" class="btn pink" name="action">Login
+            <i class="material-icons right">send</i>
+        </button>
+
+    </form>
+</div>
+

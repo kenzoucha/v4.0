@@ -1,0 +1,43 @@
+<div class="row">
+    <div class="col s12">
+        <div class="col s6">
+            <h4 class="header">Listes Produits</h4>
+        </div>
+        <div class="input-field col s6" >
+            <i class="material-icons prefix">search</i>
+            <input type="text" class="validate" ng-model="byInput">
+            <h4><a ui-sref="products.add.item" class="right">
+                <i class="material-icons medium">add</i></a></h4>
+        </div>
+    </div>
+</div>
+<hr>
+<div class="row">
+    <div class="col s4" ng-repeat="prod in products | filter : byInput">
+        <div class="card small">
+            <div class="chip" style="position: absolute; right: 5px; top: 5px; z-index: 999;">
+                <span class="deep-orange-text">{{prod.price}} DT</span>
+                <img ng-src="assets/images/save-money.png" alt="Contact Person">
+            </div>
+            <div class="card-image">
+                <div ng-if="prod.images.length !== 0">
+                    <div ng-repeat="img in prod.images | limitTo : 1">
+                        <img ng-src="assets/images/{{img.name}}">
+                    </div>
+                </div>
+                <div ng-if="prod.images.length == 0">
+                    <img ng-src="assets/images/no_image.jpeg">
+                </div>
+                <span class="card-title">{{prod.designation}}</span>
+            </div>
+            <div class="card-content">
+                <p>{{prod.description | limitTo : 21}}... <a ui-sref="products.detail({productId:prod._id})"> Lire la suite&rarr;</a></p>
+            </div>
+            <div class="card-action">
+                <a ng-click="deleteProduct(prod._id)" href="" style="color: #d9534f;"><i class="material-icons">delete</i></a>
+                <a ui-sref="products.edit({productId:prod._id})" style="color: #f0ad4e;"><i class="material-icons">mode_edit</i></a>
+                <a ui-sref="products.detail({productId:prod._id})" class="right" style="color: #5bc0de;"><i class="material-icons">trending_flat</i></a>
+            </div>
+        </div>
+    </div>
+</div>
